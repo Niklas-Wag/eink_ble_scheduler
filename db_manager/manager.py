@@ -28,7 +28,7 @@ class ScheduledTask(Base):
 
 
 class DatabaseManager:
-    def __init__(self, db_url="sqlite:///task_manager.db"):
+    def __init__(self, db_url="sqlite:///eink.db"):
         self.engine = create_engine(db_url)
         Base.metadata.create_all(self.engine)
         self.Session = sessionmaker(bind=self.engine)
