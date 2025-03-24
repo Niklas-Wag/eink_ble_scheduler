@@ -1,4 +1,4 @@
-from logging_config import logger
+from src.logging_config import logger
 from bleak import BleakScanner
 
 class BLEManager:

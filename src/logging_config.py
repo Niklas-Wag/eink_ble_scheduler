@@ -3,7 +3,7 @@ from logging.handlers import RotatingFileHandler
 
 log_formatter = logging.Formatter("%(asctime)s - %(levelname)s - %(module)s - %(message)s")
 
-file_handler = RotatingFileHandler("app.log", maxBytes=5*1024*1024, backupCount=5)
+file_handler = RotatingFileHandler("../app.log", maxBytes=5 * 1024 * 1024, backupCount=5)
 file_handler.setFormatter(log_formatter)
 
 console_handler = logging.StreamHandler()

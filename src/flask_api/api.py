@@ -1,7 +1,7 @@
 import asyncio
 from flask import Blueprint, jsonify, request
-from ble_manager import BLEManager
-from db_manager import DatabaseManager
+from src.ble_manager import BLEManager
+from src.db_manager import DatabaseManager
 
 api_bp = Blueprint('api', __name__)
 db_manager = DatabaseManager()
