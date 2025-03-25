@@ -19,7 +19,8 @@ def reload_devices():
     devices = asyncio.run(ble_manager.scan_for_devices())
     for device_name in devices:
         db_manager.add_device(device_name)
-    return jsonify({'status': 'success', 'devices': devices})
+    return jsonify({'status': 'success'})
+
 
 
 @api_bp.route('/displays/<string:device_name>', methods=['POST'])
@@ -34,6 +35,7 @@ def add_task(device_name):
 def delete_display(device_name):
     db_manager.delete_device(device_name)
     return jsonify({'status': 'success'})
+
 
 @api_bp.route('/tasks/<string:task_id>', methods=['DELETE'])
 def delete_task(task_id):
