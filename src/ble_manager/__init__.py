@@ -1,3 +1,3 @@
-from .manager import BLEManager
+from .ble_manager import BLEManager
 
 __all__ = ["BLEManager"]
