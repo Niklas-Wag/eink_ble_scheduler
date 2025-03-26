@@ -38,13 +38,12 @@ class DatabaseManager:
 
     def schedule_task(self, device_name, task_type, schedule):
         session = self.get_session()
-        device = session.query(Device).get(device_name)
-        if device:
-            device.task_type = task_type
-            device.schedule_cron = schedule
-            device.schedule_created_at = datetime.now()
-            session.commit()
-            self.job_scheduler.schedule_job(device_name, schedule)
+        device = session.query(Device).filter_by(name=device_name).first()
+        device.task_type = task_type
+        device.schedule_cron = schedule
+        device.schedule_created_at = datetime.now()
+        session.commit()
+        self.job_scheduler.schedule_job(device_name, schedule)
         session.close()
 
     def get_displays(self):

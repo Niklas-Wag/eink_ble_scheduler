@@ -7,3 +7,7 @@ job_scheduler.start()
 
 if __name__ == "__main__":
     app.run(debug=True)
+
+
+    #todo: fix scheduling, it us always run twice
+    #todo: make factory for jobs
