@@ -3,10 +3,7 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from datetime import datetime
 
-from src.job_manager import JobScheduler
-
 Base = declarative_base()
-
 
 class Device(Base):
     __tablename__ = 'devices'
@@ -16,13 +13,11 @@ class Device(Base):
     schedule_cron = Column(String, nullable=True)
     schedule_created_at = Column(DateTime, nullable=True)
 
-
 class DatabaseManager:
     def __init__(self, db_url="sqlite:///eink.db"):
         self.engine = create_engine(db_url)
         Base.metadata.create_all(self.engine)
         self.Session = sessionmaker(bind=self.engine)
-        self.job_scheduler = JobScheduler()
 
     def get_session(self):
         return self.Session()
@@ -36,14 +31,14 @@ class DatabaseManager:
             session.commit()
         session.close()
 
-    def schedule_task(self, device_name, task_type, schedule):
+    def schedule_task(self, device_name, task_type, schedule, job_scheduler):
         session = self.get_session()
         device = session.query(Device).filter_by(name=device_name).first()
         device.task_type = task_type
         device.schedule_cron = schedule
         device.schedule_created_at = datetime.now()
         session.commit()
-        self.job_scheduler.schedule_job(device_name, schedule)
+        job_scheduler.schedule_job(device_name, schedule)
         session.close()
 
     def get_displays(self):
@@ -71,7 +66,7 @@ class DatabaseManager:
             session.commit()
         session.close()
 
-    def clear_task(self, device_name):
+    def clear_task(self, device_name, job_scheduler):
         session = self.get_session()
         device = session.query(Device).get(device_name)
         if device:
@@ -79,5 +74,5 @@ class DatabaseManager:
             device.schedule_cron = None
             device.schedule_created_at = None
             session.commit()
-            self.job_scheduler.remove_job(device_name)
+            job_scheduler.remove_job(device_name)
         session.close()
