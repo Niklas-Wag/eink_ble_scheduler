@@ -26,3 +26,28 @@ Services:
 00001800-0000-1000-8000-00805f9b34fb (Handle: 1): Generic Access Profile
 00001801-0000-1000-8000-00805f9b34fb (Handle: 8): Generic Attribute Profile
 00001337-0000-1000-8000-00805f9b34fb (Handle: 12): Vendor specific
+
+
+
+
+/home/niklas/anaconda3/envs/eink/bin/python /home/niklas/Documents/projects/eink/src/main.py
+Scanning for BLE devices...
+Found: 60:F6:AF:6C:84:3B: 60-F6-AF-6C-84-3B
+Found: D4:8F:B5:00:D3:BF: D4-8F-B5-00-D3-BF
+Found: 8C:EA:48:B5:D2:AD: [TV] Samsung The Frame 50
+Found: 5E:99:BC:17:17:9F: 5E-99-BC-17-17-9F
+Found: C9:21:64:39:CD:BA: C9-21-64-39-CD-BA
+Found: 8C:79:F5:A7:DF:21: 8C-79-F5-A7-DF-21
+Found: DF:C2:27:2A:C3:51: DF-C2-27-2A-C3-51
+Found: 4D:DC:4D:33:34:E2: 4D-DC-4D-33-34-E2
+Found: 3D:6E:57:11:F2:42: ATC_11F242
+
+Found target device: 3D:6E:57:11:F2:42: ATC_11F242
+
+Attempting to connect using 3D:6E:57:11:F2:42...
+Successfully connected to ATC_11F242!
+Connection status: True
+
+Services:
+00001337-0000-1000-8000-00805f9b34fb (Handle: 12): Vendor specific
+00001801-0000-1000-8000-00805f9b34fb (Handle: 8): Generic Attribute Profile
