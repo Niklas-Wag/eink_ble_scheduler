@@ -18,7 +18,7 @@ def get_displays():
 def reload_devices():
     devices = asyncio.run(ble_manager.scan_for_devices())
     for device_name in devices:
-        db_manager.add_device(device_name)
+        db_manager.add_device(device_name.name, device_name.address)
     return jsonify({'status': 'success'})
 
 @api_bp.route('/displays/<string:device_name>', methods=['POST'])

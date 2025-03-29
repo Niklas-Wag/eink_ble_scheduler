@@ -10,7 +10,7 @@ class BLEManager:
 
         try:
             found_devices = await BleakScanner.discover()
-            atc_devices = [device.name for device in found_devices if device.name and device.name.startswith("ATC_")]
+            atc_devices = [device for device in found_devices if device.name and device.name.startswith("ATC_")]
 
             self.logger.info(f"Discovered ATC devices: {atc_devices}")
             return atc_devices

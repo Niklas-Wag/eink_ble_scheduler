@@ -9,6 +9,7 @@ class Device(Base):
     __tablename__ = 'devices'
 
     name = Column(String, primary_key=True)
+    address = Column(String, nullable=True)
     task_type = Column(String, nullable=True)
     schedule_cron = Column(String, nullable=True)
     schedule_created_at = Column(DateTime, nullable=True)
@@ -22,11 +23,11 @@ class DatabaseManager:
     def get_session(self):
         return self.Session()
 
-    def add_device(self, name):
+    def add_device(self, name, address):
         session = self.get_session()
         device = session.query(Device).filter_by(name=name).first()
         if not device:
-            device = Device(name=name)
+            device = Device(name=name, address=address, )
             session.add(device)
             session.commit()
         session.close()
