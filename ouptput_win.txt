@@ -1,0 +1,28 @@
+PS C:\Users\niklas\Documents\GitHub\eink_ble_scheduler> & C:/Users/niklas/Documents/GitHub/eink_ble_scheduler/.venv/Scripts/python.exe c:/Users/niklas/Documents/GitHub/eink_ble_scheduler/src/main.py
+Scanning for BLE devices...
+Found: 44:81:6E:30:8B:64: None
+Found: ED:C5:6E:40:CC:B6: None
+Found: 8C:EA:48:B5:D2:AD: [TV] Samsung The Frame 50
+Found: 8C:79:F5:A7:DF:21: None
+Found: 67:19:DD:29:C6:DF: None
+Found: DB:43:D3:28:F5:88: None
+Found: 67:87:44:F5:14:94: None
+Found: 4C:C0:E3:43:C5:8F: None
+Found: FA:52:8F:6C:F9:DF: None
+Found: 3D:6E:57:11:F2:42: ATC_11F242
+
+Found target device: 3D:6E:57:11:F2:42: ATC_11F242
+
+Attempting to connect using 3D:6E:57:11:F2:42...
+Connection failed: Device with address 3D:6E:57:11:F2:42 was not found.
+
+Attempting to connect using 3D:6E:57:11:F2:42: ATC_11F242...
+Successfully connected to ATC_11F242!
+Connection status: True
+c:\Users\niklas\Documents\GitHub\eink_ble_scheduler\src\main.py:39: FutureWarning: This method will be removed future version, use the services property instead.
+  services = await client.get_services()
+
+Services:
+00001800-0000-1000-8000-00805f9b34fb (Handle: 1): Generic Access Profile
+00001801-0000-1000-8000-00805f9b34fb (Handle: 8): Generic Attribute Profile
+00001337-0000-1000-8000-00805f9b34fb (Handle: 12): Vendor specific
